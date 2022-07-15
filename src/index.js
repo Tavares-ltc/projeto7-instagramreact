@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom'
 import NavBar from './navbar'
 import SideBar from './sidebar'
 import Stories from './stories'
-import Posts from './feed'
+import Posts from './posts'
 import FundoMobile from './fundomobile'
 function App() {
     return (
