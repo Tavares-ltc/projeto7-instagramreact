@@ -1,14 +1,45 @@
+const sideBarContent = {
+    userName: "catanacomics", nick: "Catana", profileIMG: "img/catanacomics.svg", suggestion: [
+        { userName: "bad.vibes.memes", profileIMG: "img/bad.vibes.memes.svg", reason: "Segue você" },
+        { userName: "chibirdart", profileIMG: "img/chibirdart.svg", reason: "Segue você" },
+        { userName: "razoesparaacreditar", profileIMG: "img/razoesparaacreditar.svg", reason: "Novo no Instagram" },
+        { userName: "adorable_animals", profileIMG: "img/adorable_animals.svg", reason: "Segue você" },
+        { userName: "smallcutecats", profileIMG: "img/smallcutecats.svg", reason: "Segue você" }
+    ]
+}
+function CreateUserInfo(props) {
+    return (
 
+        <div class="usuario">
+        <img src={props.profileIMG} />
+        <div class="texto">
+            <strong>{props.userName}</strong>
+            {props.nick}
+        </div>
+    </div>
+        )
+}
+function CreateSideBar(props) {
+    return (
+
+        
+        <div class="sugestao">
+        <div class="usuario">
+            <img src={props.profileIMG} />
+            <div class="texto">
+                <div class="nome">{props.userName}</div>
+                <div class="razao">{props.reason}</div>
+            </div>
+        </div>
+        <div class="seguir">Seguir</div>
+    </div>
+        )
+}
 function SideBar() {
     return (
         <div class="sidebar">
-            <div class="usuario">
-                <img src="img/catanacomics.svg" />
-                <div class="texto">
-                    <strong>catanacomics</strong>
-                    Catana
-                </div>
-            </div>
+
+            <CreateUserInfo userName={sideBarContent.userName} nick={sideBarContent.nick} profileIMG={sideBarContent.profileIMG} />
 
             <div class="sugestoes">
                 <div class="titulo">
@@ -16,65 +47,7 @@ function SideBar() {
                     <div>Ver tudo</div>
                 </div>
 
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="img/bad.vibes.memes.svg" />
-                        <div class="texto">
-                            <div class="nome">bad.vibes.memes</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="img/chibirdart.svg" />
-                        <div class="texto">
-                            <div class="nome">chibirdart</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="img/razoesparaacreditar.svg" />
-                        <div class="texto">
-                            <div class="nome">razoesparaacreditar</div>
-                            <div class="razao">Novo no Instagram</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="img/adorable_animals.svg" />
-                        <div class="texto">
-                            <div class="nome">adorable_animals</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="img/smallcutecats.svg" />
-                        <div class="texto">
-                            <div class="nome">smallcutecats</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
+                {(sideBarContent.suggestion).map(suggestionContent => <CreateSideBar userName={suggestionContent.userName} profileIMG={suggestionContent.profileIMG} reason={suggestionContent.reason} />)}
             </div>
 
             <div class="links">
@@ -87,4 +60,5 @@ function SideBar() {
         </div>
     )
 }
+
 export default SideBar
