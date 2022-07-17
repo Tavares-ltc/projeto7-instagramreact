@@ -2,8 +2,9 @@ import React from 'react'
 
 const postContent = [
     { imgUser: "img/meowed.svg", imgPost: "img/gato-telefone.svg", img_whoLiked: "img/respondeai.svg", whoLiked: "respondeai", likes: "101.523" },
-    { imgUser: "img/barked.svg", imgPost: "img/dog.svg", img_whoLiked: "img/adorable_animals.svg", whoLiked: "adorable_animals", likes: "99.159" }]
-function Post(props) {
+    { imgUser: "img/barked.svg", imgPost: "img/dog.svg", img_whoLiked: "img/adorable_animals.svg", whoLiked: "adorable_animals", likes: "99.159" },
+]
+    function Post(props) {
 
     const [iconName, setIconName] = React.useState("heart-outline");
     const [iconColor, setIconColor] = React.useState("heart-outline");

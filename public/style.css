@@ -101,7 +101,6 @@ body {
   border-radius: 3px;
   border: 1px solid #DBDBDB;
   padding: 0 18px;
-  overflow: hidden;
   position: relative;
 }
 
@@ -127,10 +126,22 @@ body {
 
 }
 
-.story .imagem img {
+.story .imagem img:last-of-type{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+}
+.story .imagem {
+  position:"relative";
+}
+.story .imagem:hover {
+  transform: scale(1.1);
+}
+.borda_stories {
   width: 56px;
   height: 56px;
-  border-radius: 50%;
+  position: absolute;
 }
 
 .story .usuario {
@@ -314,6 +325,10 @@ body {
 .sidebar .sugestoes .sugestao .usuario .texto :last-child {
   color: #8E8E8E;
   font-weight: 400;
+}
+
+.sidebar .seguir:hover {
+text-decoration: underline;
 }
 
 .links,

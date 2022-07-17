@@ -1,3 +1,6 @@
+import React from 'react'
+import { useRef } from 'react';
+
 const storiesContent = [
     { img: "img/9gag.svg", userName: "9gag" },
     { img: "img/meowed.svg", userName: "meowed" },
@@ -6,11 +9,13 @@ const storiesContent = [
     { img: "img/wawawicomics.svg", userName: "wawawicomics" },
     { img: "img/respondeai.svg", userName: "respondeai" },
     { img: "img/filomoderna.svg", userName: "filomoderna" },
-    { img: "img/memeriagourmet.svg", userName: "emeriagourmet" }]
+    { img: "img/memeriagourmet.svg", userName: "emeriagourmet" }
+]
 function Story(props) {
     return (
         <div class="story">
             <div class="imagem">
+                <img class="borda_stories" src="/img/stories_background.jpg"></img>
                 <img src={props.img} />
             </div>
             <div class="usuario">
@@ -19,11 +24,13 @@ function Story(props) {
         </div>
     )
 }
+
 function Stories() {
+ 
     return (
         <div class="stories">
             {storiesContent.map(content => <Story img={content.img} userName={content.userName} />)}
-            <div class="setinha">
+            <div class="setinha" >
               <ion-icon name="chevron-forward-circle"></ion-icon>
             </div>
         </div>
