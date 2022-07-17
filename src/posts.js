@@ -1,5 +1,26 @@
-const postContent = [{ imgUser: "img/meowed.svg", imgPost: "img/gato-telefone.svg", img_whoLiked: "img/respondeai.svg", whoLiked: "respondeai", likes: "101.523" }, { imgUser: "img/barked.svg", imgPost: "img/dog.svg", img_whoLiked: "img/adorable_animals.svg", whoLiked: "adorable_animals", likes: "99.159" }]
+import React from 'react'
+
+const postContent = [
+    { imgUser: "img/meowed.svg", imgPost: "img/gato-telefone.svg", img_whoLiked: "img/respondeai.svg", whoLiked: "respondeai", likes: "101.523" },
+    { imgUser: "img/barked.svg", imgPost: "img/dog.svg", img_whoLiked: "img/adorable_animals.svg", whoLiked: "adorable_animals", likes: "99.159" }]
 function Post(props) {
+
+    const [iconName, setIconName] = React.useState("heart-outline");
+    const [iconColor, setIconColor] = React.useState("heart-outline");
+    const [userLike, setUserLike] = React.useState(0);
+
+    function likeThePost() {
+        if (iconName === "heart") {
+            setIconName("heart-outline");
+            setIconColor("md hydrated");
+            setUserLike(0);
+        }
+        else {
+            setIconName("heart");
+            setIconColor("md hydrated paintedRed");
+            setUserLike(1);
+        }
+    }
     return (
         <div class="post">
             <div class="topo">
@@ -13,14 +34,14 @@ function Post(props) {
             </div>
 
             <div class="conteudo">
-                <img src={props.imgPost} />
+                <img onDoubleClick={likeThePost} src={props.imgPost} />
             </div>
 
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        <ion-icon name="heart-outline"></ion-icon>
-                        <ion-icon name="chatbubble-outline"></ion-icon>
+                        <ion-icon class={iconColor} onClick={likeThePost} name={iconName}></ion-icon>
+                        <ion-icon name="chatbubble-outline" ></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
@@ -31,7 +52,7 @@ function Post(props) {
                 <div class="curtidas">
                     <img src={props.img_whoLiked} />
                     <div class="texto">
-                        Curtido por <strong>{props.whoLiked}</strong> e <strong>outras {props.likes} pessoas</strong>
+                        Curtido por <strong>{props.whoLiked}</strong> e <strong>outras {props.likes + userLike} pessoas</strong>
                     </div>
                 </div>
             </div>
@@ -42,7 +63,7 @@ function Post(props) {
 function Posts() {
     return (
         <div class="posts">
-            {postContent.map(item => (<Post imgUser={item.imgUser} imgPost={item.imgPost} img_whoLiked={item.img_whoLiked} whoLiked={item.img_whoLiked} likes={item.likes} />))}
+            {postContent.map(item => (<Post imgUser={item.imgUser} imgPost={item.imgPost} img_whoLiked={item.img_whoLiked} whoLiked={item.whoLiked} likes={item.likes} />))}
         </div>
     )
 }
