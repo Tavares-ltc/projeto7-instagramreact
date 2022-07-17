@@ -231,6 +231,10 @@ body {
   justify-content: center;
   align-items: center;
 }
+.imgPost video {
+  width: 100%;
+  height: 100%;
+}
 .heartAnimation {
   color:rgb(219, 216, 216);
   width: 0;
