@@ -8,6 +8,7 @@ function Post(props) {
     const [iconName, setIconName] = React.useState("heart-outline");
     const [iconColor, setIconColor] = React.useState("heart-outline");
     const [userLike, setUserLike] = React.useState(0);
+    const [heartAnimation, setHeartAnimation] = React.useState("md hydrated heartAnimation")
 
     function likeThePost() {
         if (iconName === "heart") {
@@ -19,7 +20,14 @@ function Post(props) {
             setIconName("heart");
             setIconColor("md hydrated paintedRed");
             setUserLike(1);
+            animation()
         }
+    }
+    function animation() {
+        setHeartAnimation("md hydrated heartAnimation transform")
+        setInterval(() => {
+             setHeartAnimation("md hydrated heartAnimation")
+        }, 1000);
     }
     return (
         <div class="post">
@@ -34,7 +42,10 @@ function Post(props) {
             </div>
 
             <div class="conteudo">
+                <div class="imgPost">
                 <img onDoubleClick={likeThePost} src={props.imgPost} />
+                <ion-icon class={heartAnimation} name="heart"></ion-icon>
+                </div>
             </div>
 
             <div class="fundo">

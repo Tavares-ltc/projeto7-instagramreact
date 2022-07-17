@@ -190,7 +190,31 @@ body {
 
 .post .conteudo img {
   width: 100%;
+  
 }
+.imgPost {
+  width: 614x;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.heartAnimation {
+  color:rgb(219, 216, 216);
+  width: 0;
+  height: 0;
+  z-index: 1;
+  position: absolute;
+  
+}
+.heartAnimation.transform {
+  width:200px;
+  height: 200px;
+  transition-property:all;
+  transition-duration: 0.8s;
+  transition-timing-function: ease-out;
+}
+
 
 .post .fundo .acoes {
   display: flex;
@@ -342,6 +366,7 @@ ion-icon .heart {
     width: 100%;
   }
 }
+
 
 @media (max-width: 614px) {
   .corpo {
